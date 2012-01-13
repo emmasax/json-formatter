@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Json Formatter</title>
+    <meta charset='utf-8' />
+    <link href='stylesheets/jsonFormatter.css' media='all' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='formatted-json'>
+      <div class='json'>
+        {"firstName": "John","lastName" : "Smith","age"      : 25,"address"  :{"streetAddress": "21 2nd Street","city"         : "New York","state" : "NY","postalCode"   :"10021"},"phoneNumber":[{"type"  : "home","number": "212 555-1234"},{"type"  : "fax","number": "646 555-4567"}]}
+      </div>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js'></script>
+    <script src='javascripts/jquery.jsonFormatter.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        jQuery(function($) {
+          $('.json').jsonFormatter();
+          $('.json').jsonFormatter('addToggles');
+        });
+      //]]>
+    </script>
+  </body>
+</html>
