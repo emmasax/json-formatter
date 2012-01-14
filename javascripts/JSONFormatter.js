@@ -6,12 +6,12 @@ JSONFormatter = (function() {
     // default settings
     var settings = $.extend( {
       'appendTo' : 'body',
-      'json' : json,
       'listId' : 'json',
       'collapse' : false
     }, options);
     
     var loopCount = 0;
+    console.log(options);
     
     loopObjectOfObjects = function(json2, ulId) {
       $.each(json2, function(k3, v3) {
@@ -78,7 +78,7 @@ JSONFormatter = (function() {
 
     $(settings.appendTo).append(jsonList);
 
-    $.each(settings.json, function(key, val) {
+    $.each(json, function(key, val) {
       if(typeof val == 'object') {
         $('#' + settings.listId).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
         loopAgain(val, key, key + '-' + loopCount);
