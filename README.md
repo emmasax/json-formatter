@@ -1,15 +1,12 @@
-# JSONFormatter.js
+## JSONFormatter.js
 
 JSONFormatter takes JSON and renders it into an HTML list.
 
-## Prerequisites
+### Basic usage
 
-* jQuery
-* Valid string of JSON
+This library requires jQuery.
 
-## Basic usage
-
-The basic usage for JSONFormatter passing in the json:
+The basic usage for JSONFormatter is passing in the JSON and an empty options object:
 
     JSONFormatter.format(json, {});
 
@@ -27,4 +24,4 @@ An options object can can be passed as a second parameter to the format function
 
 A basic stylesheet is available to layout the list slightly nicer than the default styles.
 
-    <link href='stylesheets/jsonFormatter.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='jsonFormatter.css' media='all' rel='stylesheet' type='text/css' />
