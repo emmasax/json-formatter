@@ -5,6 +5,22 @@ body {
   width: 960px;
 }
 
+h1, h2 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+code {
+  border: 1px solid #ccc;
+  background-color: #eee;
+  display: block;
+  margin: 0;
+  padding: 10px;
+}
+pre {
+  margin: 0;
+}
+
 .fake-link
 {
   color: #0091EB;
