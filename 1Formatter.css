@@ -4,7 +4,7 @@ body {
 }
 
 ul#json {
-  margin: 10px 0 0;
+  margin: 10px 0 0; 
   padding: 0; }
   ul#json i, ul#json b {
     color: black;
