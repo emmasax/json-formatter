@@ -1,0 +1,19 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+ul#json {
+  margin: 10px 0 0; 
+  padding: 0; }
+  ul#json i, ul#json b {
+    color: black;
+    font-style: normal; }
+  ul#json ul {
+    margin: 3px 0 0 20px;
+    padding: 0; }
+  ul#json li {
+    padding: 0 0 3px;
+    list-style-type: none;
+    margin: 0;
+    color: #666666; }
