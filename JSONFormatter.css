@@ -1,6 +1,13 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
+  margin: 20px auto;
+  width: 960px;
+}
+
+.fake-link
+{
+  color: #0091EB;
 }
 
 ul#json {
