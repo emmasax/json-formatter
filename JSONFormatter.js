@@ -11,7 +11,6 @@ JSONFormatter = (function() {
     }, options);
     
     var loopCount = 0;
-    console.log(options);
     
     loopObjectOfObjects = function(json2, ulId) {
       $.each(json2, function(k3, v3) {
