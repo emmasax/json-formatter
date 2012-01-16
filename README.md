@@ -2,9 +2,11 @@
 
 JSONFormatter takes JSON and renders it into an HTML list.
 
+[-> View a demo](http://emmasax.github.com/json-formatter/)
+
 ### Basic usage
 
-This library requires jQuery.
+This library requires jQuer
 
 The basic usage for JSONFormatter is passing in the JSON and an empty options object:
 
