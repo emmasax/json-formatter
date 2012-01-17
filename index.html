@@ -2,64 +2,35 @@
 <html lang='en'>
   <head>
     <title>JSON Formatter</title>
-
     <link href="JSONFormatter.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js'></script>
-    <script src="https://raw.github.com/emmasax/json-formatter/master/JSONFormatter.js"></script>
+    <script src="https://raw.github.com/forward/json-formatter/master/JSONFormatter.js"></script>
     <script type='text/javascript'>
       //<![CDATA[
         jQuery(function($) {
           var json = { "firstName" : "John","lastName" : "Smith","age" : 25,"address" : { "streetAddress": "21 2nd Street","city" : "New York","state" : "NY","postalCode" : "10021"},"phoneNumber":[{"type" : "home","number": "212 555-1234"},{"type" : "fax","number": "646 555-4567"}]};
-          JSONFormatter.format(json, { 'collapse' : true });
+          JSONFormatter.format(json, {'appendTo' : '.uncollapsed'});
+          JSONFormatter.format(json, {'appendTo' : '.collapsed', 'collapse' : true, 'list_id' : 'json2' });
         });
       //]]>
     </script>
     <h1>JSONFormatter.js</h1>
     <p>JSONFormatter is a javascript library that takes JSON and renders it into HTML.</p>
-    <p>View the <a href="https://github.com/emmasax/json-formatter">README</a> for more information.</p>
+    <p>View the <a href="https://github.com/forward/json-formatter">README</a> for more information.</p>
     
     <h2>Raw JSON</h2>
     
     <p>{ "firstName" : "John","lastName" : "Smith","age" : 25,"address" : { "streetAddress": "21 2nd Street","city" : "New York","state" : "NY","postalCode" : "10021"},"phoneNumber":[{"type" : "home","number": "212 555-1234"},{"type" : "fax","number": "646 555-4567"}]}</p>
 
-    <h2>Generated HTML</h2>
-    <code><pre>&lt;ul id="json"&gt;
-  &lt;li&gt;&lt;i&gt;firstName:&lt;/i&gt; John&lt;/li&gt;
-  &lt;li&gt;&lt;i&gt;lastName:&lt;/i&gt; Smith&lt;/li&gt;
-  &lt;li&gt;&lt;i&gt;age:&lt;/i&gt; 25&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;address:&lt;/b&gt; &lt;span&gt;{&lt;/span&gt;&lt;span class=&quot;toggle fake-link&quot;&gt; + &lt;/span&gt;
-    &lt;ul id=&quot;address-0&quot; style=&quot;display: none; &quot;&gt;
-      &lt;li&gt;&lt;i&gt;streetAddress:&lt;/i&gt; 21 2nd Street&lt;/li&gt;
-      &lt;li&gt;&lt;i&gt;city:&lt;/i&gt; New York&lt;/li&gt;
-      &lt;li&gt;&lt;i&gt;state:&lt;/i&gt; NY&lt;/li&gt;
-      &lt;li&gt;&lt;i&gt;postalCode:&lt;/i&gt; 10021&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;span&gt;}&lt;/span&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;phoneNumber:&lt;/b&gt; &lt;span&gt;{&lt;/span&gt;&lt;span class=&quot;toggle fake-link&quot;&gt; + &lt;/span&gt;
-    &lt;ul id=&quot;phoneNumber-1&quot; style=&quot;display: none; &quot;&gt;
-      &lt;li&gt;&lt;b&gt;0:&lt;/b&gt; &lt;span&gt;{&lt;/span&gt;&lt;span class=&quot;toggle fake-link&quot;&gt; + &lt;/span&gt; 
-        &lt;ul id=&quot;0-2&quot; style=&quot;display: none; &quot;&gt;
-          &lt;li&gt;&lt;i&gt;type:&lt;/i&gt; home&lt;/li&gt;
-          &lt;li&gt;&lt;i&gt;number:&lt;/i&gt; 212 555-1234&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;span&gt;}&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;1:&lt;/b&gt; &lt;span&gt;{&lt;/span&gt;&lt;span class=&quot;toggle fake-link&quot;&gt; + &lt;/span&gt; 
-        &lt;ul id=&quot;1-3&quot; style=&quot;display: none; &quot;&gt;
-          &lt;li&gt;&lt;i&gt;type:&lt;/i&gt; fax&lt;/li&gt;
-          &lt;li&gt;&lt;i&gt;number:&lt;/i&gt; 646 555-4567&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;span&gt;}&lt;/span&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;span&gt;}&lt;/span&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</pre></code>
-    
-    <h2>Formatted HTML</h2>
+    <section class="uncollapsed">
+      <h2>Formatted</h2>
+    </section>
+
+    <section class="collapsed">
+      <h2>Collapsed</h2>
+    </section>
     
   </body>
 </html>
