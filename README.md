@@ -27,3 +27,7 @@ An options object can can be passed as a second parameter to the format function
 A basic stylesheet is available to layout the list slightly nicer than the default styles.
 
     <link href='jsonFormatter.css' media='all' rel='stylesheet' type='text/css' />
+    
+### To do:
+
+Fix the object of objects - don't output 0:, 1:, 2:, etc.
