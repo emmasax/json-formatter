@@ -1,13 +1,23 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  margin: 20px auto;
+  margin: 20px auto 40px;
   width: 960px;
 }
 
 h1, h2 {
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
+}
+
+.contain {
+  overflow: hidden;
+}
+
+.collapsed, .uncollapsed {
+  width: 40%;
+  float: left;
+  margin-right: 30px;
 }
 
 code {
@@ -26,16 +36,30 @@ pre {
   color: #0091EB;
 }
 
-ul#json {
+.owner
+{
+  float: right;
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+}
+.owner a {
+  color: #666;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul {
   margin: 10px 0 0; 
   padding: 0; }
-  ul#json i, ul#json b {
+  ul i, ul b {
     color: black;
     font-style: normal; }
-  ul#json ul {
+  ul ul {
     margin: 3px 0 0 20px;
     padding: 0; }
-  ul#json li {
+  ul li {
     padding: 0 0 3px;
     list-style-type: none;
     margin: 0;
