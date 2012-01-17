@@ -1,4 +1,4 @@
-## JSONFormatter.js
+## JSONFormatter.js (beta)
 
 JSONFormatter takes JSON and renders it into an HTML list.
 
