@@ -2,7 +2,7 @@
 
 JSONFormatter takes JSON and renders it into an HTML list.
 
-[-> View a demo](http://emmasax.github.com/json-formatter/)
+[View a demo](http://forward.github.com/json-formatter/)
 
 ### Basic usage
 
