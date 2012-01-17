@@ -16,21 +16,21 @@ JSONFormatter = (function() {
       $.each(json2, function(k3, v3) {
         // object of objects
         if(typeof v3 == 'object') {
-          $('#' + settings.list_id + ' #' + ulId).append('<li><span>{</span> <ul id="' + ulId + '-' + k3 + '"></ul></li>');
+          $('#' + ulId).append('<li><span>{</span> <ul id="' + ulId + '-' + k3 + '"></ul></li>');
           $.each(v3, function(k4, v4) {
             if(typeof v4 == 'object' && v4 != null) {
-              $('#' + settings.list_id + ' #' + ulId + '-' + k3).append('<li>' + k4 + ' <span>{</span> <ul id="'+k4+'-'+loopCount+'"></ul></li>');
+              $('#' + ulId + '-' + k3).append('<li>' + k4 + ' <span>{</span> <ul id="'+k4+'-'+loopCount+'"></ul></li>');
               loopAgain(v4, k4, k4 + '-' + loopCount);
             }
             else {
-              $('#' + settings.list_id + ' #' + ulId + '-' + k3).append('<li>' + k4 + ': ' + v4 + '</li>');
+              $('#' + ulId + '-' + k3).append('<li>' + k4 + ': ' + v4 + '</li>');
             }
 
           });
         } 
         else {
           // normal array
-          $('#' + settings.list_id + ' #' + ulId).append('<li>' + v3 + '</li>')
+          $('#' + ulId).append('<li>' + v3 + '</li>')
         }
       });
     },
@@ -43,22 +43,22 @@ JSONFormatter = (function() {
         if(nextVal != null && typeof nextVal == 'object') {
           if(nextVal.length == 0) {
             // an empty object, just output that
-            $('#' + settings.list_id + ' #' + ulId).append('<li><i>' + nextKey + ':</i> []</li>');
+            $('#' + ulId).append('<li><i>' + nextKey + ':</i> []</li>');
           } 
           else if(nextVal.length >= 1) {
             // an object of objects
-            $('#' + settings.list_id + ' #' + ulId).append('<li><b>' + nextKey + ':</b> <span>[</span> ' + newList + '</li>');
+            $('#' + ulId).append('<li><b>' + nextKey + ':</b> <span>[</span> ' + newList + '</li>');
             loopObjectOfObjects(nextVal, nextListId);
           }
           else if(nextVal.length == undefined) {
             // next node
-            $('#' + settings.list_id + ' #' + ulId).append('<li><b>' + nextKey + ':</b> <span>{</span> ' + newList + '</li>');
+            $('#' + ulId).append('<li><b>' + nextKey + ':</b> <span>{</span> ' + newList + '</li>');
             loopAgain(nextVal, nextKey, nextListId);
           }        
         }
         else {
           // value|key
-          $('#' + settings.list_id + ' #' + ulId).append('<li><i>'+ nextKey + ':</i> ' + nextVal + '</li>');
+          $('#' + ulId).append('<li><i>'+ nextKey + ':</i> ' + nextVal + '</li>');
         }
       });
     },
