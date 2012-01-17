@@ -6,7 +6,7 @@ JSONFormatter = (function() {
     // default settings
     var settings = $.extend( {
       'appendTo' : 'body',
-      'listId' : 'json',
+      'list_id' : 'json',
       'collapse' : false
     }, options);
     
@@ -64,7 +64,7 @@ JSONFormatter = (function() {
     },
     
     addClosingBraces = function() {
-      $('#' + settings.listId + ' span').each(function() {
+      $('#' + settings.list_id + ' span').each(function() {
         var closingBrace = '<span>}</span>';
         if($(this).text() == "[") {
           closingBrace = '<span>]</span>';
@@ -73,24 +73,24 @@ JSONFormatter = (function() {
       });      
     };
 
-    var jsonList = $('<ul id="' + settings.listId + '" />');
+    var jsonList = $('<ul id="' + settings.list_id + '" />');
 
     $(settings.appendTo).append(jsonList);
 
     $.each(json, function(key, val) {
       if(typeof val == 'object') {
-        $('#' + settings.listId).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
+        $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
         loopAgain(val, key, key + '-' + loopCount);
       }
       else {
-        $('#' + settings.listId).append('<li><i>' + key + ':</i> ' + val + '</li>');
+        $('#' + settings.list_id).append('<li><i>' + key + ':</i> ' + val + '</li>');
       }
     });
     
     addClosingBraces();
     
     if(settings.collapse) {
-      addToggles(settings.listId);      
+      addToggles(settings.list_id);      
     }
     
   },
