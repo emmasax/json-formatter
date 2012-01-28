@@ -58,7 +58,14 @@ JSONFormatter = (function() {
         }
         else {
           // value|key
-          $('#' + settings.list_id + ' #' + ulId).append('<li><i>'+ nextKey + ':</i> ' + nextVal + '</li>');
+          // if(nextKey.val == undefined) {
+          //   $('#' + settings.list_id + ' #' + ulId).append('<li>' + nextVal + '</li>');
+          //   
+          // }
+          // else {
+            $('#' + settings.list_id + ' #' + ulId).append('<li><i>'+ nextKey + ':</i> ' + nextVal + '</li>');
+            
+          // }
         }
       });
     },
@@ -78,9 +85,43 @@ JSONFormatter = (function() {
     $(settings.appendTo).append(jsonList);
 
     $.each(json, function(key, val) {
-      if(typeof val == 'object') {
-        $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
-        loopAgain(val, key, key + '-' + loopCount);
+      
+      
+      
+      if(val != null && typeof val == 'object') {
+        var goObj = false;
+        var goArray = false;
+        var nk = '';
+        $.each(val, function(nextKey, nextVal) {
+        
+          if(nextVal != null && typeof nextVal == 'object') {
+            if(nextVal.length == undefined) {
+              goObj = true;
+              nk = nextKey;
+            }
+            else {
+              goObj = false;
+            }
+          }
+          else {
+            console.log('nextVal ' + nextVal);
+            goArray = true;
+          }
+        });
+
+        if(goObj) {
+          $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>[</span><ul id="' + nk + '-' + loopCount + '"></ul></li>');
+          loopObjectOfObjects(val, nk + '-' + loopCount);
+        }
+        else if(goArray) {
+          $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>[</span><ul id="' + nk + '-' + loopCount + '"></ul></li>');
+          loopAgain(val, nk, nk + '-' + loopCount);
+        }
+        else {
+          $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
+          loopAgain(val, key, key + '-' + loopCount);              
+        }
+        
       }
       else {
         $('#' + settings.list_id).append('<li><i>' + key + ':</i> ' + val + '</li>');
