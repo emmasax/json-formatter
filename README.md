@@ -30,7 +30,9 @@ A basic stylesheet is available to layout the list slightly nicer than the defau
     
 ## To do:
 
-Fix the object of objects - don't output 0:, 1:, 2:, etc.
+  * Fix the object of objects - don't output 0:, 1:, 2:, etc.
+  * Fix array of strings in first child node
+  * General refactor - lots of code duplication
 
 ## Development
 
