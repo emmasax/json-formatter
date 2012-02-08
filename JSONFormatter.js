@@ -104,7 +104,7 @@ JSONFormatter = (function() {
             }
           }
           else {
-            console.log('nextVal ' + nextVal);
+            // console.log('nextVal ' + nextVal);
             goArray = true;
           }
         });
