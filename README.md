@@ -1,10 +1,10 @@
-## JSONFormatter.js (beta)
+# JSONFormatter.js (beta)
 
 JSONFormatter takes JSON and renders it into an HTML list.
 
 [View a demo](http://forward.github.com/json-formatter/)
 
-### Basic usage
+## Basic usage
 
 This library requires jQuery
 
@@ -12,7 +12,7 @@ The basic usage for JSONFormatter is passing in the JSON and an empty options ob
 
     JSONFormatter.format(json, {});
 
-### Options
+## Options
 
 An options object can can be passed as a second parameter to the format function call (defaults shown):
 
@@ -22,12 +22,31 @@ An options object can can be passed as a second parameter to the format function
       list_id: 'json' // The name of the id at the root ul of the formatted JSON
     })
 
-### Styling
+## Styling
 
 A basic stylesheet is available to layout the list slightly nicer than the default styles.
 
     <link href='jsonFormatter.css' media='all' rel='stylesheet' type='text/css' />
     
-### To do:
+## To do:
 
 Fix the object of objects - don't output 0:, 1:, 2:, etc.
+
+## Development
+
+Source hosted at [GitHub](http://github.com/forward/json-formatter).
+Report Issues/Feature requests on [GitHub Issues](http://github.com/forward/json-formatter/issues).
+
+### Note on Patches/Pull Requests
+
+ * Fork the project.
+ * Make your feature addition or bug fix.
+ * Add tests for it. This is important so I don't break it in a
+   future version unintentionally.
+ * Commit, do not mess with rakefile, version, or history.
+   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+ * Send me a pull request. Bonus points for topic branches.
+
+## Copyright
+
+Copyright (c) 2012 Forward. See [LICENSE](https://github.com/forward/json-formatter/blob/master/LICENSE) for details.
