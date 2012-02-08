@@ -6,7 +6,7 @@ JSONFormatter takes JSON and renders it into an HTML list.
 
 ### Basic usage
 
-This library requires jQuer
+This library requires jQuery
 
 The basic usage for JSONFormatter is passing in the JSON and an empty options object:
 
