@@ -18,7 +18,7 @@ An options object can can be passed as a second parameter to the format function
 
     JSONFormatter.format(json, {
       collapse: false, // Setting to 'true' this will format the JSON into a collapsable/expandable tree
-      append_to: 'body', // A string of the id, class or element name to append the formatted json
+      appendTo: 'body', // A string of the id, class or element name to append the formatted json
       list_id: 'json' // The name of the id at the root ul of the formatted JSON
     })
 
