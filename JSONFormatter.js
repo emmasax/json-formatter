@@ -1,16 +1,15 @@
 JSONFormatter = (function() {
+  var init = function( json, options ) {
 
-  var init = function( json, options ) { 
-    
     // default settings
     var settings = $.extend( {
       'appendTo' : 'body',
       'list_id' : 'json',
       'collapse' : false
     }, options);
-    
+
     var loopCount = 0;
-    
+
     loopObjectOfObjects = function(json2, ulId) {
       $.each(json2, function(k3, v3) {
         // object of objects
@@ -26,7 +25,7 @@ JSONFormatter = (function() {
             }
 
           });
-        } 
+        }
         else {
           // normal array
           $('#' + settings.list_id + ' #' + ulId).append('<li>' + v3 + '</li>')
@@ -43,7 +42,7 @@ JSONFormatter = (function() {
           if(nextVal.length == 0) {
             // an empty object, just output that
             $('#' + settings.list_id + ' #' + ulId).append('<li><i>' + nextKey + ':</i> []</li>');
-          } 
+          }
           else if(nextVal.length >= 1) {
             // an object of objects
             $('#' + settings.list_id + ' #' + ulId).append('<li><b>' + nextKey + ':</b> <span>[</span> ' + newList + '</li>');
@@ -53,22 +52,22 @@ JSONFormatter = (function() {
             // next node
             $('#' + settings.list_id + ' #' + ulId).append('<li><b>' + nextKey + ':</b> <span>{</span> ' + newList + '</li>');
             loopAgain(nextVal, nextKey, nextListId);
-          }        
+          }
         }
         else {
           // value|key
           // if(nextKey.val == undefined) {
           //   $('#' + settings.list_id + ' #' + ulId).append('<li>' + nextVal + '</li>');
-          //   
+          //
           // }
           // else {
             $('#' + settings.list_id + ' #' + ulId).append('<li><i>'+ nextKey + ':</i> ' + nextVal + '</li>');
-            
+
           // }
         }
       });
     },
-    
+
     addClosingBraces = function() {
       $('#' + settings.list_id + ' span').each(function() {
         var closingBrace = '<span>}</span>';
@@ -76,7 +75,7 @@ JSONFormatter = (function() {
           closingBrace = '<span>]</span>';
         }
         $(this).parent().find('ul').eq(0).after(closingBrace);
-      });      
+      });
     };
 
     var jsonList = $('<ul id="' + settings.list_id + '" />');
@@ -84,15 +83,15 @@ JSONFormatter = (function() {
     $(settings.appendTo).append(jsonList);
 
     $.each(json, function(key, val) {
-      
-      
-      
+
+
+
       if(val != null && typeof val == 'object') {
         var goObj = false;
         var goArray = false;
         var nk = '';
         $.each(val, function(nextKey, nextVal) {
-        
+
           if(nextVal != null && typeof nextVal == 'object') {
             if(nextVal.length == undefined) {
               goObj = true;
@@ -118,31 +117,29 @@ JSONFormatter = (function() {
         }
         else {
           $('#' + settings.list_id).append('<li><b>' + key + ':</b> <span>{</span><ul id="' + key + '-' + loopCount + '"></ul></li>');
-          loopAgain(val, key, key + '-' + loopCount);              
+          loopAgain(val, key, key + '-' + loopCount);
         }
-        
+
       }
       else {
         $('#' + settings.list_id).append('<li><i>' + key + ':</i> ' + val + '</li>');
       }
     });
-    
+
     addClosingBraces();
-    
+
     if(settings.collapse) {
-      addToggles(settings.list_id);      
+      addToggles(settings.list_id);
     }
-    
+
   },
-  
+
   addToggles = function( listId ) {
     $('#' + listId + " > li").find('ul').each(function() {
       $(this).parent().find('span').eq(0).after('<span class="toggle fake-link"> - </span>');
     });
 
-    $('.toggle').next().slideUp().end().text(' + ');
-
-    $('.toggle').on('click', function() {
+    $('.toggle').next().slideUp().end().text(' + ').on('click', function() {
       if($(this).next().is(":visible")) {
         $(this).next().slideUp().end().text(' + ');
       }
@@ -151,7 +148,7 @@ JSONFormatter = (function() {
       }
     });
   };
-  
+
   return {
 
     format: function(json, options) {
@@ -159,6 +156,5 @@ JSONFormatter = (function() {
     }
 
   }
-  
 
 })();
