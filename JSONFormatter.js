@@ -139,7 +139,7 @@ JSONFormatter = (function() {
       $(this).parent().find('span').eq(0).after('<span class="toggle fake-link"> - </span>');
     });
 
-    $('.toggle').next().slideUp().end().text(' + ').on('click', function() {
+    $('#' + listId + ' .toggle').next().slideUp().end().text(' + ').on('click', function() {
       if($(this).next().is(":visible")) {
         $(this).next().slideUp().end().text(' + ');
       }
